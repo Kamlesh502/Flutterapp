@@ -30,6 +30,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.1
   flutter_svg: ^0.18.0
+  sizer: ^1.1.8
+  http: ^0.12.2
+  email_validator: '^1.0.5'
   
 
 dev_dependencies:
@@ -62,6 +65,13 @@ flutter:
     - assets/images/ordericon.svg
     - assets/images/profile_icon.svg
     - assets/images/otppic.svg
+    - assets/images/tick.gif
+    - assets/images/setpass.jpg
+    - assets/images/add.svg
+    - assets/images/globe.svg
+    - assets/images/graph.svg
+    - assets/images/tag.svg
+    - assets/images/add.svg
 
 
 
@@ -80,6 +90,10 @@ flutter:
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf
+
+    - family: RobotoMedium
+      fonts:
+        - asset: assets/fonts/Roboto-Medium.ttf
           
 
     - family: RobotoBold

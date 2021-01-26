@@ -8,3 +8,7 @@ const info_icon = 'assets/images/info_icon.svg';
 const profile_icon = 'assets/images/profile_icon.svg';
 const ordericon = 'assets/images/ordericon.svg';
 const otppic = 'assets/images/otppic.svg';
+const add = 'assets/images/add.svg';
+const region = 'assets/images/globe.svg';
+const refer = 'assets/images/tag.svg';
+const stats = 'assets/images/graph.svg';

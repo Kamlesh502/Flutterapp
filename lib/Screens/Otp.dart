@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:login/Components/customicons.dart';
+import 'package:login/Screens/SetPassword.dart';
 import 'package:login/Screens/Signup.dart';
+import 'package:login/Components/animate.dart';
 
 class Otpclass extends StatefulWidget {
   @override
@@ -52,10 +54,8 @@ class _OtpclassState extends State<Otpclass> {
           backgroundColor: Colors.white,
           elevation: 0,
           leading: IconButton(
-            onPressed: () => {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Signup();
-              })),
+            onPressed: () {
+              Navigator.push(context, SlideRightRoute(page: Signup()));
             },
             icon: Icon(Icons.arrow_back_ios),
           ),
@@ -187,13 +187,16 @@ class _OtpclassState extends State<Otpclass> {
                     left: 75, right: 75, bottom: 20, top: 60),
                 child: MaterialButton(
                   // color: Color(0xFF27DEBF),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context, SlideLeftRoute(page: Setpassword()));
+                  },
                   minWidth: 250.0,
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(8.0)),
                   height: 45.0,
                   child: Text(
-                    "Login",
+                    "Set Password",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 22.0,

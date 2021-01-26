@@ -4,6 +4,7 @@ import 'package:login/Screens/Createorder.dart';
 import 'package:login/Screens/Signup.dart';
 import 'package:login/Screens/Login.dart';
 import 'package:login/Components/customicons.dart';
+import 'package:login/Components/animate.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -31,10 +32,8 @@ class _HomepageState extends State<Homepage> {
             margin: new EdgeInsets.only(left: 75, right: 75, bottom: 20),
             child: MaterialButton(
               // color: Color(0xFF27DEBF),
-              onPressed: () => {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Login();
-                })),
+              onPressed: () {
+                Navigator.push(context, SlideLeftRoute(page: Login()));
               },
               minWidth: 250.0,
               // shape: RoundedRectangleBorder(
@@ -61,8 +60,7 @@ class _HomepageState extends State<Homepage> {
               // color: Color(0xFF27DEBF),
 
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Signup()));
+                Navigator.push(context, SlideLeftRoute(page: Signup()));
               },
               minWidth: 250.0,
               // shape: RoundedRectangleBorder(
@@ -88,8 +86,7 @@ class _HomepageState extends State<Homepage> {
             child: MaterialButton(
               // color: Color(0xFF27DEBF),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CreateOrder()));
+                Navigator.push(context, SlideLeftRoute(page: CreateOrder()));
               },
               minWidth: 250.0,
               // shape: RoundedRectangleBorder(
