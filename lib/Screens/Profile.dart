@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:login/Components/customicons.dart';
+import 'package:login/Screens/Refer.dart';
 import 'package:sizer/sizer.dart';
+import 'package:login/Components/animate.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -203,29 +205,34 @@ class _ProfileState extends State<Profile> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 25, left: 20),
-            child: Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(right: 20),
-                  width: 25,
-                  height: 25,
-                  child: SvgPicture.asset(
-                    refer,
-                    color: Color(0xFF465A64),
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    "Refer n Earn",
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 17,
+          InkWell(
+            onTap: () {
+              Navigator.push(context, SlideLeftRoute(page: Refer()));
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: 25, left: 20),
+              child: Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 20),
+                    width: 25,
+                    height: 25,
+                    child: SvgPicture.asset(
+                      refer,
+                      color: Color(0xFF465A64),
                     ),
                   ),
-                )
-              ],
+                  Container(
+                    child: Text(
+                      "Refer n Earn",
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontSize: 17,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           Container(

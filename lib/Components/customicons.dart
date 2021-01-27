@@ -12,3 +12,6 @@ const add = 'assets/images/add.svg';
 const region = 'assets/images/globe.svg';
 const refer = 'assets/images/tag.svg';
 const stats = 'assets/images/graph.svg';
+const referimg = 'assets/images/refer.png';
+const giftpic = 'assets/images/giftbox.svg';
+const wa = 'assets/images/whatsapp.svg';

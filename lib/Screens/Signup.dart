@@ -6,6 +6,12 @@ import 'package:login/Screens/Otp.dart';
 import 'package:login/Components/customicons.dart';
 import 'package:email_validator/email_validator.dart';
 
+import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart';
+
+import 'dart:async';
+import 'dart:convert';
+
 class Signup extends StatefulWidget {
   @override
   _SignupState createState() => _SignupState();
@@ -16,7 +22,7 @@ class _SignupState extends State<Signup> {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -76,9 +82,10 @@ class _SignupState extends State<Signup> {
                     margin: new EdgeInsets.only(left: 30, right: 30),
                     child: ListTile(
                       title: TextFormField(
+                        controller: lastNameController,
                         validator: (String value) {
                           if (value.isEmpty) {
-                            return "Please enter the first name.";
+                            return "Please enter the last name.";
                           }
                         },
                         decoration: InputDecoration(
@@ -96,9 +103,10 @@ class _SignupState extends State<Signup> {
                     margin: new EdgeInsets.only(left: 30, right: 30),
                     child: ListTile(
                       title: TextFormField(
+                        controller: emailController,
                         validator: (String value) {
                           if (value.isEmpty) {
-                            return "Please enter the first name.";
+                            return "Please enter the email.";
                           }
                           if (!EmailValidator.validate(value)) {
                             return "Enter valid email";
@@ -119,9 +127,15 @@ class _SignupState extends State<Signup> {
                     margin: new EdgeInsets.only(left: 30, right: 30),
                     child: ListTile(
                       title: TextFormField(
+                        controller: phoneController,
+                        keyboardType: TextInputType.number,
+                        maxLength: 10,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
                         validator: (String value) {
                           if (value.isEmpty) {
-                            return "Please enter the first name.";
+                            return "Please enter the phone no.";
                           }
                         },
                         decoration: InputDecoration(
@@ -141,9 +155,7 @@ class _SignupState extends State<Signup> {
                       // color: Color(0xFF27DEBF),
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          _signUpUser();
-                          //Navigator.push(
-                          //  context, SlideLeftRoute(page: Otpclass()));
+                          createUser();
                         }
                       },
                       minWidth: 250.0,
@@ -214,8 +226,60 @@ class _SignupState extends State<Signup> {
     );
   }
 
-  void _signUpUser() {
-    String fName = firstNameController.text;
-    print(fName);
+  /* Future<http.Response> createUser() {
+    return http.post(
+      'https://www.mitrahtechnology.in/apis/mitrah-api/register.php',
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        "first_name": "mieethvhg",
+        "last_name": "teceeehbjhghj",
+        "email": "acbdevcdtc@t.com",
+        "password": "dev12345",
+        "phn_number": "9012101240"
+      }),
+    );
+  }*/
+
+  Future<http.Response> createUser() async {
+    String firstName = firstNameController.text;
+    String lastName = lastNameController.text;
+    String email = emailController.text;
+    String phn_number = phoneController.text;
+
+    Map data = {
+      "first_name": firstName,
+      "last_name": lastName,
+      "email": email,
+      "password": "dev12345",
+      "phn_number": phn_number
+    };
+    String body = json.encode(data);
+
+    http.Response res = await http.post(
+      'https://www.mitrahtechnology.in/apis/mitrah-api/register.php',
+      /* headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },*/
+      body: body,
+    );
+
+    print(res.body);
+    var responseData = json.decode(res.body);
+    if (responseData['success'] == 1) {
+      Navigator.push(context, SlideLeftRoute(page: Otpclass()));
+    } else if (responseData['status'] == 500) {
+      showDialog(
+          context: context,
+          builder: (context) =>
+              CustomDialogError("Error", "User already Exists", "Cancel"));
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) =>
+              CustomDialogError("Error", responseData['message'], "Cancel"));
+    }
+    return res;
   }
 }
