@@ -15,3 +15,5 @@ const stats = 'assets/images/graph.svg';
 const referimg = 'assets/images/refer.png';
 const giftpic = 'assets/images/giftbox.svg';
 const wa = 'assets/images/whatsapp.svg';
+const language = 'assets/images/translate.svg';
+const info = 'assets/images/information.svg';

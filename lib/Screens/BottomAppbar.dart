@@ -8,6 +8,7 @@ import 'package:login/Screens/Profile.dart';
 import 'package:login/Screens/New_Orders.dart';
 import 'package:login/Screens/Chat.dart';
 import 'package:sizer/sizer.dart';
+import 'package:login/Screens/Info.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _currentstate = 0;
-  final List<Widget> _children = [Profile(), CreateOrder(), neworder(), Chat()];
+  final List<Widget> _children = [neworder(), info(), Chat(), Profile()];
   // void onTappedBar(int index) {
   //   setState(() {
   //     _currentstate = index;
@@ -37,7 +38,7 @@ class _DashboardState extends State<Dashboard> {
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 15.0, top: 15.0),
+            margin: EdgeInsets.only(right: 5.0.w, top: 1.0.h),
             child: Text(
               "Log Out",
               style: TextStyle(
@@ -49,12 +50,12 @@ class _DashboardState extends State<Dashboard> {
         ],
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.only(bottom: 10, left: 6, right: 6),
+        margin: EdgeInsets.only(bottom: 1.0.h, left: 2.0.w, right: 2.0.w),
         child: SizedBox(
-          height: 65,
+          height: 9.0.h,
           child: ClipRRect(
             borderRadius: BorderRadius.all(
-              Radius.circular(18.0),
+              Radius.circular(4.0.w),
             ),
             child: BottomAppBar(
               color: Color(0XFF2BCDB4),
@@ -62,38 +63,7 @@ class _DashboardState extends State<Dashboard> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        _currentstate = 0;
-                      });
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(top: 13, left: 13, right: 12),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 25,
-                            height: 25,
-                            margin: EdgeInsets.only(bottom: 4),
-                            child: SvgPicture.asset(
-                              profile_icon,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Container(
-                              margin: EdgeInsets.only(top: 2),
-                              child: Text(
-                                'Profile',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13,
-                                ),
-                              ))
-                        ],
-                      ),
-                    ),
-                  ),
+                  //New Orders
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -101,22 +71,24 @@ class _DashboardState extends State<Dashboard> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.only(top: 14, left: 13, right: 12),
+                      margin: EdgeInsets.only(
+                          top: 2.0.h, left: 5.0.w, right: 0.0.w),
                       child: Column(
                         children: [
                           Container(
-                            width: 25,
-                            height: 25,
-                            margin: EdgeInsets.only(bottom: 5),
+                            width: 8.0.w,
+                            height: 3.0.h,
+                            margin: EdgeInsets.only(bottom: 0.5.h),
                             child: SvgPicture.asset(
                               add,
                               color: Colors.white,
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(top: 0.5.h),
                             child: Text("New Orders",
                                 style: TextStyle(
-                                  fontSize: 13,
+                                  fontSize: 10.0.sp,
                                   color: Colors.white,
                                 )),
                           )
@@ -124,6 +96,7 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                   ),
+                  //Info
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -131,24 +104,26 @@ class _DashboardState extends State<Dashboard> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.only(top: 13, left: 13, right: 20),
+                      margin: EdgeInsets.only(
+                          top: 2.0.h, left: 5.0.w, right: 5.0.w),
                       child: Column(
                         children: [
                           Container(
-                            width: 25,
-                            height: 25,
-                            margin: EdgeInsets.only(bottom: 4),
+                            width: 8.0.w,
+                            height: 3.0.h,
+                            margin: EdgeInsets.only(bottom: 0.5.h),
                             child: SvgPicture.asset(
-                              ordericon,
+                              info,
                               color: Colors.white,
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(top: 0.5.h),
                             child: Text(
-                              "Orders",
+                              "Info",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 13,
+                                fontSize: 10.0.sp,
                               ),
                             ),
                           )
@@ -156,6 +131,7 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                   ),
+                  //Chat
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -163,25 +139,61 @@ class _DashboardState extends State<Dashboard> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.only(top: 13, left: 13, right: 20),
+                      margin: EdgeInsets.only(
+                          top: 2.0.h, left: 5.0.w, right: 5.0.w),
                       child: Column(
                         children: [
                           Container(
-                            width: 25,
-                            height: 25,
-                            margin: EdgeInsets.only(bottom: 4),
+                            width: 8.0.w,
+                            height: 3.0.h,
+                            margin: EdgeInsets.only(bottom: 0.5.h),
                             child: SvgPicture.asset(
                               chaticon,
                               color: Colors.white,
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(top: 0.5.h),
                             child: Text("Chat",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 13,
+                                  fontSize: 10.0.sp,
                                 )),
                           )
+                        ],
+                      ),
+                    ),
+                  ),
+                  //Profile
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _currentstate = 0;
+                      });
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          top: 2.0.h, left: 5.0.w, right: 5.0.w),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 8.0.w,
+                            height: 3.0.h,
+                            margin: EdgeInsets.only(bottom: 0.5.h),
+                            child: SvgPicture.asset(
+                              profile_icon,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Container(
+                              margin: EdgeInsets.only(top: 0.5.h),
+                              child: Text(
+                                'Profile',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10.0.sp,
+                                ),
+                              ))
                         ],
                       ),
                     ),

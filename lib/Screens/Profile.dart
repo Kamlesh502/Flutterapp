@@ -22,7 +22,7 @@ class _ProfileState extends State<Profile> {
           Container(
             margin: EdgeInsets.only(top: 20, left: 10),
             child: Text(
-              "Kamlesh,",
+              "XYZ,",
               style: TextStyle(
                   fontFamily: "RobotoBold",
                   fontSize: 28.0.sp,
@@ -32,7 +32,7 @@ class _ProfileState extends State<Profile> {
           Container(
             margin: EdgeInsets.only(top: 15, left: 10),
             child: Text(
-              "+91 8692913125",
+              "+91 1234567890",
               style: TextStyle(
                   fontFamily: "Roboto", fontSize: 18, color: Color(0xFF465A64)),
             ),
@@ -180,31 +180,6 @@ class _ProfileState extends State<Profile> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 25, left: 20),
-            child: Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(right: 20),
-                  width: 25,
-                  height: 25,
-                  child: SvgPicture.asset(
-                    stats,
-                    color: Color(0xFF465A64),
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    "Statistics",
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 17,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
           InkWell(
             onTap: () {
               Navigator.push(context, SlideLeftRoute(page: Refer()));
@@ -236,6 +211,31 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Container(
+            margin: EdgeInsets.only(top: 25, left: 20),
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(right: 20),
+                  width: 25,
+                  height: 25,
+                  child: SvgPicture.asset(
+                    language,
+                    color: Color(0xFF465A64),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    "Language",
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontSize: 17,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
               margin: EdgeInsets.only(top: 15, left: 65),
               child: Divider(
                 color: Colors.black,
@@ -243,7 +243,7 @@ class _ProfileState extends State<Profile> {
           Container(
             margin: EdgeInsets.only(top: 20, left: 65),
             child: Text(
-              "Service Information",
+              "App Version",
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 17,
@@ -253,27 +253,7 @@ class _ProfileState extends State<Profile> {
           Container(
             margin: EdgeInsets.only(top: 20, left: 65),
             child: Text(
-              "Terms & Conditions",
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontSize: 17,
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20, left: 65),
-            child: Text(
-              "Disclaimer",
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontSize: 17,
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20, left: 65),
-            child: Text(
-              "Support",
+              "Logout",
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 17,

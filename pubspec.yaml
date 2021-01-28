@@ -77,6 +77,8 @@ flutter:
     - assets/images/box.svg
     - assets/images/error.gif
     - assets/images/whatsapp.svg
+    - assets/images/translate.svg
+    - assets/images/information.svg
 
 
 
